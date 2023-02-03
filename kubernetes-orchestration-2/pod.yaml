@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+     name: nginx-deployment
+     labels:
+          environment: staging
+          squad: core
+spec:
+     containers:
+          - name: nginx
+            image: nginx:latest
+            resources:
+                 limits:
+                      memory: "128Mi"
+                      cpu: "500m"
+            ports:
+                 - containerPort: 80
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+     name: nginx-deployment-2
+     labels:
+          environment: production
+          squad: prod
+spec:
+     containers:
+          - name: nginx
+            image: nginx:1.23.3-alpine
+            resources:
+                 limits:
+                      memory: "128Mi"
+                      cpu: "500m"
+            ports:
+                 - containerPort: 80
