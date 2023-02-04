@@ -1,2 +1,19 @@
-menit 53.00
-//menit 53:00
+apiVersion: batch/v1
+
+kind: Job
+
+metadata:
+  name: nodejs-job
+
+spec:
+  completions: 5
+  parallelism: 2
+
+  template:
+    spec:
+      containers:
+        - name: nodejs-job
+
+          image: rizkyperdana28/nodejs-job:latest
+
+      restartPolicy: Never
