@@ -4,6 +4,7 @@ kind: CronJob
 
 metadata:
      name: nodejs-croonjob
+
 spec:
      schedule: "* * * * *"
 
@@ -13,16 +14,5 @@ spec:
                     spec:
                          containers:
                               - name: nodejs-croonjob
-
-                                image: busybox:1.28
-
-                                imagePullPolicy: IfNotPresent
-
-                                command:
-                                     - /bin/sh
-
-                                     - -c
-
-                                     - date; echo Hello from the Kubernetes cluster
-
-                         restartPolicy: OnFailure
+                                image: rizkyperdana28/nodejs-job
+                         restartPolicy: Never
