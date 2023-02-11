@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nodejs-env
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: nodejs-env
+  template:
+    metadata:
+      labels:
+        name: nodejs-env
+    spec:
+      containers:
+        - name: nodejs-env
+          image: rizkyperdana28/nodejs-env:latest
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: nodejs-env-config
