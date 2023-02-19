@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod-1
+  labels:
+    name: my-pod-1
+spec:
+  containers:
+    - name: hello-world
+      image: cehamot/hello-world:latest
+      env:
+        - name: PORT
+          value: "8085"
